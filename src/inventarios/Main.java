@@ -5,6 +5,8 @@
  */
 package inventarios;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author francisco
@@ -16,6 +18,19 @@ public class Main {
      */
     public static void main(String[] args) {
 
+         ArrayList<Usuario> lista_Usuarios = new ArrayList<>();
+        
+        Usuario damas = new Usuario("oscar","damas");
+        lista_Usuarios.add(damas);
+      
+        
+        
+        
+      SaludosJFrame login = new SaludosJFrame(lista_Usuarios);
+        login.setVisible(true);
+        
+        
+        
     }
 
 }
