@@ -5,16 +5,20 @@
  */
 package inventarios;
 
+
+
 /**
  *
  * @author oscar
  */
 public class ventana1 extends javax.swing.JFrame {
-
+ 
+   
     /**
      * Creates new form ventana1
      */
     public ventana1() {
+        
         initComponents();
     }
 
@@ -53,6 +57,11 @@ public class ventana1 extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/incon/files_folder_256.png"))); // NOI18N
         jButton2.setText("VER TODOS LO REGISTROS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/incon/CARSON DELLOSA-9.jpg"))); // NOI18N
         jButton3.setText("IMPRIMIR TODOS LOS REGISTROS");
@@ -100,12 +109,30 @@ public class ventana1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
+
         
       newRegistro v= new newRegistro();
       v.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        newRegistro u= new newRegistro();
+         
+             ClaseRegistro a;
+        tablaRegistros n = new tablaRegistros();
+        n.setVisible(true);
+        n.CargarInterfaz();
+     
+      
+        
+        
+        for(int i=0; i<u.lista.size(); i++){
+            a=(ClaseRegistro)u.lista.get(i);
+            n.MostrarDatos(a);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
