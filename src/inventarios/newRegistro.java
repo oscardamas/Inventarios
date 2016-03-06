@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class newRegistro extends javax.swing.JFrame {
 //declaro un lista dinamica para guardar los datos
     
-    public LinkedList  lista  =  new LinkedList();
+    public static LinkedList  lista  =  new LinkedList();
     
     
     /**
@@ -173,9 +173,9 @@ public class newRegistro extends javax.swing.JFrame {
         String modelos= txtmodelo.getText();
         String observacion = txtobservaciones.getText();
         
-        ClaseRegistro R = new ClaseRegistro(nombres, codigos, modelos, categorias, observacion);
+      RegistroClase r = new RegistroClase(nombres, codigos, modelos, categorias, observacion);
         
-         lista.add(R);
+        lista.add(r);
         
          JOptionPane.showMessageDialog(null, "Los datos se han guardado correctamente");
         

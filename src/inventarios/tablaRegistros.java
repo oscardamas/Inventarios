@@ -35,8 +35,13 @@ public class tablaRegistros extends javax.swing.JFrame {
       
       
       //metodo que muestras lo datos en la tabla en cada columna que tienen la tabla
+
+    /**
+     *
+     * @param c
+     */
       
-       public void MostrarDatos(ClaseRegistro c){
+       public void MostrarDatos(RegistroClase c){
         modelo.insertRow(con, new Object[]{});
         
         modelo.setValueAt(c.getNombre(), con, 0);
@@ -135,10 +140,8 @@ public class tablaRegistros extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new tablaRegistros().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new tablaRegistros().setVisible(true);
         });
     }
 

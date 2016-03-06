@@ -9,9 +9,9 @@ package inventarios;
  *
  * @author oscar
  */
-public class ClaseRegistro {
-
-    public ClaseRegistro(String nombre, String codigo, String modelo, String categoria, String observaciones) {
+public class RegistroClase {
+    
+      public RegistroClase(String nombre, String codigo, String modelo, String categoria, String observaciones) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.modelo = modelo;
@@ -66,6 +66,7 @@ public class ClaseRegistro {
     private String modelo;
     private String categoria;
     private String observaciones;
+    
     
     
     

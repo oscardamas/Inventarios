@@ -5,6 +5,7 @@
  */
 package inventarios;
 
+import static inventarios.newRegistro.lista;
 
 
 /**
@@ -22,6 +23,8 @@ public class ventana1 extends javax.swing.JFrame {
         initComponents();
     }
 
+     
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,21 +121,16 @@ public class ventana1 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        newRegistro u= new newRegistro();
-         
-             ClaseRegistro a ;
-        tablaRegistros n = new tablaRegistros();
-        n.setVisible(true);
-        n.CargarInterfaz();
-     
-      
+    tablaRegistros x = new tablaRegistros();
+        x.setVisible(true);
+        x.CargarInterfaz();
+        RegistroClase c;
         
-          
-        for(int i=0; i<u.lista.size(); i++){
-            a=(ClaseRegistro)u.lista.get(i);
-           n.MostrarDatos(a);
+        for(int i=0; i<lista.size(); i++){
+            c=(RegistroClase)lista.get(i);
+            x.MostrarDatos(c);
         }
-         
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
