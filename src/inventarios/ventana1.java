@@ -120,18 +120,20 @@ public class ventana1 extends javax.swing.JFrame {
         
         newRegistro u= new newRegistro();
          
-             ClaseRegistro a;
+             ClaseRegistro a ;
         tablaRegistros n = new tablaRegistros();
         n.setVisible(true);
         n.CargarInterfaz();
      
       
         
-        
+          
         for(int i=0; i<u.lista.size(); i++){
             a=(ClaseRegistro)u.lista.get(i);
-            n.MostrarDatos(a);
+           n.MostrarDatos(a);
         }
+         
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

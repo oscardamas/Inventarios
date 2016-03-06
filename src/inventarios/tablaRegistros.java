@@ -65,6 +65,7 @@ public class tablaRegistros extends javax.swing.JFrame {
         setTitle("Tabla de todos los articulos.ISC.ITSE");
         setResizable(false);
 
+        tablaArticulo.setForeground(new java.awt.Color(204, 255, 204));
         tablaArticulo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
