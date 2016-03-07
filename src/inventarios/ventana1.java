@@ -5,14 +5,27 @@
  */
 package inventarios;
 
+import com.itextpdf.text.pdf.PdfWriter;
 import static inventarios.newRegistro.lista;
-
-
+import java.io.File;
+import java.io.FileOutputStream;
+import javax.swing.JFileChooser;
+import javax.swing.text.Document;
+import com.itextpdf.text.DocWriter;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Element;
+import javax.swing.text.Position;
+import javax.swing.text.Segment;
 /**
  *
  * @author oscar
  */
 public class ventana1 extends javax.swing.JFrame {
+
+    private com.itextpdf.text.Document Document;
  
    
     /**
@@ -70,6 +83,11 @@ public class ventana1 extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/incon/CARSON DELLOSA-9.jpg"))); // NOI18N
         jButton3.setText("IMPRIMIR TODOS LOS REGISTROS");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/incon/sistemas de inventario.jpg"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -137,6 +155,46 @@ public class ventana1 extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        // se inicializa esa cossa que sirve para escoger directorios
+        JFileChooser LG = new JFileChooser();
+        // se inicializa la variable opcion con la funcion de escoger donde guardar
+        int opcion = LG.showSaveDialog(this);
+        // se hace el if para aprovar la ubicacion de guardar
+        if (opcion == JFileChooser.APPROVE_OPTION){
+            // en las siguientes dos lineas de codigo decimos que la ubicacion
+            // selecionada se pasara a una variable de tipo Stiring
+            File f = LG.getSelectedFile();
+            String f1 = f.toString();
+            
+            //se inicializa el try catch para que no hayga errores cuando creemos el pdf
+            
+           try {
+           //se inicializa la creancion del un archivo en la ubicacion selecionada con extencion requerida para guardar
+               FileOutputStream archivo = new FileOutputStream(f1+".pdf");
+               
+               Document doc;
+                doc = new Document();
+                  
+                PdfWriter instance = PdfWriter. getInstance((com.itextpdf.text.Document) doc, archivo);
+               
+               
+               
+               
+           } 
+            catch {
+                
+            }
+            
+        }   
+            
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
