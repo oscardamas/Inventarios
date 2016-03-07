@@ -57,7 +57,6 @@ public class SaludosJFrame extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(153, 0, 51));
-        jTextField1.setText("Username");
         jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +75,6 @@ public class SaludosJFrame extends javax.swing.JFrame {
 
         jPasswordField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPasswordField2.setForeground(new java.awt.Color(255, 0, 0));
-        jPasswordField2.setText("pasword");
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField2ActionPerformed(evt);

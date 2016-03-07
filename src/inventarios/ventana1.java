@@ -172,22 +172,39 @@ public class ventana1 extends javax.swing.JFrame {
  PdfWriter.getInstance(documento,ficheroPdf);
  
  documento.open();
- 
- PdfPTable tabla = new PdfPTable(3);
-    //el numero indica la cantidad de Columnas
-       
-tabla.addCell("celda1");
-tabla.addCell("celda2");
-tabla.addCell("celda3");
-tabla.addCell("celda4");
-tabla.addCell("celda5");
-tabla.addCell("celda6");
-    // esto nos crea una tabla de 3 Columnas por 2 Filas
-     Paragraph parrafo2 = new Paragraph("LISTA DE TODOS LOS ARTICULOS REGISTRADOS");
-    parrafo2.setAlignment(1);//el 1 es para centrar
+  
+  documento.add(new Paragraph(" "));
+   Paragraph parrafo2 = new Paragraph("LISTA DE TODOS LOS ARTICULOS REGISTRADOS");
+     parrafo2.setAlignment(1);//el 1 es para centrar
     documento.add(parrafo2);
     documento.add(new Paragraph(" "));
+ PdfPTable tabla = new PdfPTable(5);
+    //el numero indica la cantidad de Columnas
+   
+    
+         for(int i=0; i<lista.size(); i++){
+             RegistroClase c;
+            c=(RegistroClase)lista.get(i);
+           
+         
+      tabla.addCell(c.getNombre());  
+      tabla.addCell(c.getCodigo());
+      tabla.addCell(c.getCategoria());
+
+      tabla.addCell(c.getModelo());
+
+      tabla.addCell(c.getObservaciones());
+
 documento.add(tabla);
+    // esto nos crea una tabla de 3 Columnas por 2 Filas
+         }
+    
+    
+    
+    
+   
+  
+
   documento.close();
    JOptionPane.showMessageDialog(null, "Creacion finalizada");
  
