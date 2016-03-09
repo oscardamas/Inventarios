@@ -194,7 +194,7 @@ public class newRegistro extends javax.swing.JFrame {
         String modelos= txtmodelo.getText();
         String observacion = txtobservaciones.getText();
         
-      RegistroClase r = new RegistroClase(nombres, codigos, modelos, categorias, observacion);
+   RegistroClase r = new RegistroClase(nombres, codigos, modelos, categorias, observacion);
         
         lista.add(r);
         

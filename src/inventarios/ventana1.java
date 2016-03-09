@@ -10,7 +10,9 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
 import static inventarios.newRegistro.lista;
+import java.awt.HeadlessException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -47,6 +49,7 @@ public class ventana1 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMAS DE INVENTARIO_ISC.ITSE");
@@ -87,6 +90,13 @@ public class ventana1 extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/incon/sistemas de inventario.jpg"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jButton4.setText("ELIMINAR ARTICULO");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,7 +114,9 @@ public class ventana1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(232, 232, 232))
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(153, 153, 153))))
@@ -114,9 +126,15 @@ public class ventana1 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,16 +190,26 @@ public class ventana1 extends javax.swing.JFrame {
  PdfWriter.getInstance(documento,ficheroPdf);
  
  documento.open();
-  
+   Paragraph parrafo3 = new Paragraph("INSTITUTO TECNOLOGICO SUPERIOR DE ESCARCEGA");
+   parrafo3.setAlignment(1);//el 1 es para centrar
+      documento.add(parrafo3);
   documento.add(new Paragraph(" "));
    Paragraph parrafo2 = new Paragraph("LISTA DE TODOS LOS ARTICULOS REGISTRADOS");
      parrafo2.setAlignment(1);//el 1 es para centrar
     documento.add(parrafo2);
+      
     documento.add(new Paragraph(" "));
  PdfPTable tabla = new PdfPTable(5);
     //el numero indica la cantidad de Columnas
    
-    
+     tabla.addCell("NOMBRE");  
+      tabla.addCell("CODIGO");
+      tabla.addCell("CATEGORIA");
+
+      tabla.addCell("MODELO");
+
+      tabla.addCell("OBSERVACIONES");
+
          for(int i=0; i<lista.size(); i++){
              RegistroClase c;
             c=(RegistroClase)lista.get(i);
@@ -195,10 +223,10 @@ public class ventana1 extends javax.swing.JFrame {
 
       tabla.addCell(c.getObservaciones());
 
-documento.add(tabla);
+
     // esto nos crea una tabla de 3 Columnas por 2 Filas
          }
-    
+              documento.add(tabla);
     
     
     
@@ -209,7 +237,7 @@ documento.add(tabla);
    JOptionPane.showMessageDialog(null, "Creacion finalizada");
  
 }
-catch (Exception p) 
+catch (     FileNotFoundException | DocumentException | HeadlessException p) 
     
 {
     JOptionPane.showMessageDialog(null, "ERROR"+p);
@@ -218,6 +246,15 @@ catch (Exception p)
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+     FrameEliminar   q= new FrameEliminar();
+     q.setVisible(true);
+         
+        
+  
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,22 +272,16 @@ catch (Exception p)
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ventana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ventana1().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ventana1().setVisible(true);
         });
     }
 
@@ -258,6 +289,7 @@ catch (Exception p)
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
