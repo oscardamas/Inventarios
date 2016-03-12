@@ -5,6 +5,7 @@
  */
 package inventarios;
 
+import java.awt.Toolkit;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -25,7 +26,14 @@ public class newRegistro extends javax.swing.JFrame {
         initComponents();
     }
 
-   
+      @Override
+    public java.awt.Image getIconImage() {
+        java.awt.Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("ImagenBloqueo/cheques.png"));
+
+
+        return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,6 +59,7 @@ public class newRegistro extends javax.swing.JFrame {
         txtmodelo = new javax.swing.JTextField();
 
         setTitle("INGRESO DE NUEVO ARTICULO_ISC.ITSE");
+        setIconImage(getIconImage());
         setLocation(new java.awt.Point(350, 100));
         setResizable(false);
 
@@ -121,10 +130,9 @@ public class newRegistro extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtcodigo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtcategoria))
+                            .addComponent(txtnombre)
+                            .addComponent(txtcodigo)
+                            .addComponent(txtcategoria, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtobservaciones)
                             .addComponent(txtmodelo))))
                 .addContainerGap())

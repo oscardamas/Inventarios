@@ -7,6 +7,7 @@ package inventarios;
 
 import static inventarios.RegistroClase.*;
 import static inventarios.newRegistro.lista;
+import java.awt.Toolkit;
 
 import javax.swing.JOptionPane;
 /**
@@ -20,6 +21,15 @@ public class FrameEliminar extends javax.swing.JFrame {
      */
     public FrameEliminar() {
         initComponents();
+    }
+    
+       @Override
+    public java.awt.Image getIconImage() {
+        java.awt.Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("ImagenBloqueo/cheques.png"));
+
+
+        return retValue;
     }
 
     /**
@@ -36,14 +46,22 @@ public class FrameEliminar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setTitle("ELIMINAR REGISTRO_ISC.ITSE");
+        setIconImage(getIconImage());
         setLocation(new java.awt.Point(400, 300));
         setResizable(false);
 
+        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/incon/files_folder_256.png"))); // NOI18N
-        jButton1.setText("Delete");
+        jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        TexBORRAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TexBORRARActionPerformed(evt);
             }
         });
 
@@ -58,25 +76,25 @@ public class FrameEliminar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(69, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(TexBORRAR, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addComponent(TexBORRAR, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(32, 32, 32))
         );
@@ -87,8 +105,41 @@ public class FrameEliminar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
         String nombreborrar= TexBORRAR.getText();
+         boolean encontrado = false;
+          RegistroClase c = null;   
+      
+         for(int i=0; i<lista.size(); i++){
+               
+             
+             if(nombreborrar.equals(c.getCodigo(lista.size(i))))
+             {
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+             }
+       
+     
+            
+             
+     
+
+
+   
+         }
+         
+              
+        
+        
      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TexBORRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TexBORRARActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TexBORRARActionPerformed
 
     /**
      * @param args the command line arguments

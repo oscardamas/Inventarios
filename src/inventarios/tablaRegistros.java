@@ -5,6 +5,7 @@
  */
 package inventarios;
 
+import java.awt.Toolkit;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,6 +23,15 @@ public class tablaRegistros extends javax.swing.JFrame {
      */
     public tablaRegistros() {
         initComponents();
+    }
+    
+       @Override
+    public java.awt.Image getIconImage() {
+        java.awt.Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("ImagenBloqueo/cheques.png"));
+
+
+        return retValue;
     }
     
     //metodo que carga interfaz de la tabla con sus columnas que corresponden
@@ -68,6 +78,7 @@ public class tablaRegistros extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setTitle("Tabla de todos los articulos.ISC.ITSE");
+        setIconImage(getIconImage());
         setLocation(new java.awt.Point(320, 150));
         setResizable(false);
 

@@ -6,6 +6,7 @@
 package inventarios;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -27,7 +28,14 @@ public class SaludosJFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-   
+     @Override
+    public java.awt.Image getIconImage() {
+        java.awt.Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("ImagenBloqueo/cheques.png"));
+
+
+        return retValue;
+    }
 
   
     /**
@@ -47,6 +55,7 @@ public class SaludosJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMAS DE INVENTARIO_ISC.ITSE");
+        setIconImage(getIconImage());
         setLocation(new java.awt.Point(300, 100));
         setResizable(false);
 
